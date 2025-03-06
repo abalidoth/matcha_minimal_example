@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://16on3yr1jlsg"]
+
+[ext_resource type="Script" path="res://main_scene.gd" id="1_g211f"]
+
+[node name="MainScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g211f")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 643.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="MoveRegister" type="TextEdit" parent="CenterContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+editable = false
+
+[node name="MoveLine" type="LineEdit" parent="CenterContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "Enter Move Here..."
+
+[node name="SendButton" type="Button" parent="CenterContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Send"
+
+[connection signal="pressed" from="CenterContainer/HBoxContainer/VBoxContainer/SendButton" to="." method="_on_send_button_pressed"]
